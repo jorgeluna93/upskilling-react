@@ -6,8 +6,8 @@ import App from './App.tsx'
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
-    <UserProvider>
+    {/* <UserProvider> */}
       <App />
-    </UserProvider>
+    {/* </UserProvider> */}
   </StrictMode>,
 )
