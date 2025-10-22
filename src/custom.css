@@ -1,6 +1,16 @@
 .pic{
     max-width: 150px;
 }
+
 .main-title{
     color:blueviolet
 }
+
+.movie-list{
+    margin-top:15px;
+}
+
+.print-movie{
+    text-align: justify;
+}
+
