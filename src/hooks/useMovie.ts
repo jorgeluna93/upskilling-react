@@ -31,11 +31,8 @@ function useMovie(): UseMoviesResult {
             }
             catch(err:any){
                 if(err?.name === "CanceledError" || err?.code === "ERR_CANCELED") return;
-
                 const message = err?.response?.data?.message ?? err?.message ?? "Unknown Error";
-
                 setError(message);
-
 
             }
             finally{
