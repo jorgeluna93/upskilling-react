@@ -19,7 +19,7 @@ function useMovie(): UseMoviesResult {
                 setLoading(true);
                 setError(null);
 
-                const response = await api.get("https://localhost:44369/api/Movie/catalog",{signal: controller.signal});
+                const response = await api.get(import.meta.env.VITE_APILINK,{signal: controller.signal});
                
                 const data = response.data as Array<Movie>;
 
