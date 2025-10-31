@@ -1,5 +1,6 @@
 import './App.css'
 import MovieList from './components/PrintMovie/MovieList';
+import UserForm from './components/userForm/UserForm';
 import { movieList } from './mocks/movie.mocks'
 
 function App() {
@@ -8,7 +9,8 @@ function App() {
     <>
       <h1 className="main-title">Catalogo de peliculas de Acccenture</h1>
       <hr/>
-      <MovieList movies={movieList}/>
+      {/* <MovieList movies={movieList}/> */}
+      <UserForm/>
     </>
   )
 }
