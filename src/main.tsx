@@ -7,8 +7,8 @@ import UserProvider from './providers/UserProvider.tsx'
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
-    {/* <UserProvider> */}
+    <UserProvider>
       <App />
-    {/* </UserProvider> */}
+    </UserProvider>
   </StrictMode>,
 )
