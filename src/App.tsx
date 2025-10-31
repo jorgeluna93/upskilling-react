@@ -9,8 +9,8 @@ function App() {
     <>
       <h1 className="main-title">Catalogo de peliculas de Acccenture</h1>
       <hr/>
-      {/* <MovieList movies={movieList}/> */}
-      <UserForm/>
+      <MovieList /> 
+      {/* <UserForm/> */}
     </>
   )
 }
