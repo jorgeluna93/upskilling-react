@@ -1,16 +1,15 @@
+import { useRoutes } from 'react-router-dom'
 import './App.css'
-import MovieList from './components/PrintMovie/MovieList';
-import UserForm from './components/userForm/UserForm';
-import { movieList } from './mocks/movie.mocks'
-
+import {appRoutes} from './routes/routes'
+import { Suspense } from 'react';
 function App() {
-
+  const routing = useRoutes(appRoutes);
   return (
     <>
       <h1 className="main-title">Catalogo de peliculas de Acccenture</h1>
       <hr/>
-      <MovieList /> 
-      {/* <UserForm/> */}
+      <Suspense fallback={<p>Loading...</p>}> {routing}</Suspense>
+  
     </>
   )
 }

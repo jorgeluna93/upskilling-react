@@ -4,11 +4,14 @@ import './index.css'
 import './custom.css'
 import App from './App.tsx'
 import UserProvider from './providers/UserProvider.tsx'
+import { BrowserRouter } from 'react-router-dom'
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
-    <UserProvider>
-      <App />
-    </UserProvider>
+    <BrowserRouter>
+      <UserProvider>
+        <App />
+      </UserProvider>
+    </BrowserRouter>
   </StrictMode>,
 )
