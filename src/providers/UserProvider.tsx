@@ -4,9 +4,13 @@ import type { UserContextType } from "../types/user";
 
 function UserProvider({children}: {children: ReactNode}): JSX.Element {
     
-    // const [username] =  useState<UserContextType>(new UserContext"Jorge Luna");
+    const [username] =  useState("Jorge Luna");
 
-    // return <UserContext.Provider value={username}></UserContext.Provider>
+    return (
+        <UserContext.Provider value={{username}}>
+            {children}
+        </UserContext.Provider>
+    );
 
     return <></>
 }
