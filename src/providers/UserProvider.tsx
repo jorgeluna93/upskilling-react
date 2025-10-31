@@ -12,6 +12,7 @@ function UserProvider({children}: {children: ReactNode}): JSX.Element {
         </UserContext.Provider>
     );
 
+    return <></>
 }
 
 export default UserProvider;
