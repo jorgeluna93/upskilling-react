@@ -4,3 +4,6 @@ export type movieProps = {
   movie:Movie;
 }
 
+export type MovieListProps = {
+  movies:Movie[];
+}
