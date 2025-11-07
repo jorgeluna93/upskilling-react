@@ -1,73 +1,55 @@
-# React + TypeScript + Vite
+# Upskilling de React
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Este proyecto esta hecho pensado para poner en practica diversos conceptos de React.
 
-Currently, two official plugins are available:
+# Environment Variables
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-
-## React Compiler
-
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+Se agregaron Environment variables, como parte de las buenas practicas. Si quieres probar el codigo en tu dispositivo de forma local basta con agregar un archivo .env en la raiz, y alli indicar la url de la API (Backend)
 
 ```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+VITE_APILINK={URL_DEL_API}/api/Movie/catalog
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
+# Componentes 
+Se manejan desde pequeños componentes como <PrintMovie> hasta mas grandes como lo son los layouts.
 ```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+...
+function PrintMovie({movie}:movieProps) :JSX.Element{
+  return(
+    <>
+      <Card style={{ width: '18rem' }}>
+      <Card.Img variant="top" src={movie.pictureUrl} />
+      <Card.Body>
+        <Card.Title>{movie.title}</Card.Title>
+        <Card.Subtitle>Release Date: {movie.releaseDate.toLocaleDateString('en-US',{
+          year:'numeric',
+          month:'long',
+          day:'numeric'})}</Card.Subtitle>
+        <Card.Text>
+          {movie.description}
+        </Card.Text>
+        <Link to={`/movies/${movie.movieId}`}>
+          <Button variant="primary" >Select</Button>
+        </Link>
+      </Card.Body>
+      <Card.Footer>
+          <Card.Text>ID #{movie.movieId}</Card.Text>
+      </Card.Footer>
+    </Card>
+    </>
+  );
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+}
 ```
+
+# Hooks
+Los hooks ayudan a "enganchar"/"hookear" funcionalidades a los componentes, trabajamos en especial con el custom hook /hooks/useMovie.tsx que permite hacer fetch a la api y presentarnos la información
+
+# Routes 
+Las rutas (usando react-dom-router) nos permiten manejar como se puede desplazar el usuario final a traves del sitio. En este caso puedes apreciar como se configuro en /routes/routes.tsx
+
+# Estilo y Maquetacion
+Se hizo uso de React Bootstrap para que el contenido pudiera mostrarse mas presentable.
+
+
